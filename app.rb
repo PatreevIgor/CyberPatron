@@ -60,14 +60,14 @@ loop do
   sleep(10)
   
 	check_status 
-	if check_status == false and Time.now.utc.hour <= 21 and Time.now.utc.hour >= 4
-		# puts "Использование trade_on"
+	if check_status == false and Time.now.utc.hour < 21 and Time.now.utc.hour > 4
+		# puts "Использование trade_on" 
 		trade_on
-	elsif check_status == true and Time.now.utc.hour > 21 and Time.now.utc.hour < 4
-		# puts "Использование trade_off"
+	elsif check_status == true and Time.now.utc.hour >= 21
+		# puts "Использование trade_off" 
 		trade_off
 	else
-		# puts "Торговля продолжается"
+		# puts "Торговля продолжается" 
 	end
 
 end
