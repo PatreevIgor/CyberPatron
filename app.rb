@@ -51,6 +51,8 @@ end
 def trade_off
 	url = "https://market.dota2.net/api/GoOffline/?key=#{ENV['SECRET_KEY']}"
 	uri = URI.parse(url)
+	response = Net::HTTP.get_response(uri)
+	my_hash = JSON.parse(response.body)
 end
 
 loop do
@@ -62,7 +64,6 @@ loop do
 		# puts "Использование trade_on"
 		trade_on
 	elsif check_status == true and Time.now.utc.hour > 21 and Time.now.utc.hour < 4
-		sleep(10)
 		# puts "Использование trade_off"
 		trade_off
 	else
