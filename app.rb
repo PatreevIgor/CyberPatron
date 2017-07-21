@@ -60,7 +60,7 @@ loop do
   sleep(10)
   
 	check_status 
-	if check_status == false and Time.now.utc.hour < 21 and Time.now.utc.hour > 4
+	if check_status == false and Time.now.utc.hour < 21 and Time.now.utc.hour >= 3
 		# puts "Использование trade_on" 
 		trade_on
 	elsif check_status == true and Time.now.utc.hour >= 21
